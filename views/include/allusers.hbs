@@ -1,0 +1,22 @@
+<table style="width: 70%;" class="table mx-auto justify-content-center">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>      
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each allUsers}}
+    <tr>
+      <th scope="row">{{this.fullname}}</th>
+      <td>{{this.email}}</td>
+      <td>{{this.role}}</td>
+      <td><a href="editusers/?_id={{this._id}}" class="btn btn-primary">Edit</a></td>
+      <td><a href="/deleteusers/?_id={{this._id}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

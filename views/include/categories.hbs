@@ -1,0 +1,20 @@
+<table style="width: 70%;" class="table mx-auto justify-content-center">
+  <thead>
+    <tr>
+      <th scope="col">Category ID</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each mylist}}
+    <tr>
+      <th scope="row">{{this._id}}</th>
+      <td>{{this.categoryname}}</td>
+      <td><a href="editcategory/?_id={{this._id}}" class="btn btn-primary">Edit</a></td>
+      <td><a href="/deletecategory/?_id={{this._id}}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

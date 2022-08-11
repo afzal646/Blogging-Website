@@ -1,0 +1,26 @@
+<form action="/addpost" method="POST" style="width: 70%;" class="mx-auto justify-content-center">
+  <div class="form-group">
+    <label for="exampleInputTitle">Title</label>
+    <input type="text" name="Title" required class="form-control" id="exampleInputTitle" aria-describedby="titleHelp"
+      placeholder="Enter Title">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputDescription">Description</label>
+    <textarea name="Description" class="form-control" placeholder="Add Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputCategory">Category</label>
+    {{#each mylist}}
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <input type="checkbox" id="Category" name="Category" value={{this.categoryname}}>
+        </div>
+      </div>
+      <label class="form-control" for="Category"> {{this.categoryname}}</label><br>
+
+    </div>
+    {{/each}}
+  </div>
+  <button type="submit" class="btn btn-primary">Add Post</button>
+</form>
