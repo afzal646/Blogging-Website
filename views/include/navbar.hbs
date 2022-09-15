@@ -17,13 +17,13 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-11"><img src="/images/logo.png" width="180px" height="68px"
+            <div class="col-12 col-md-10"><img src="/images/logo.png" width="180px" height="68px"
                     class="mt-3 img-fluid rounded mx-auto d-block" alt="Responsive image"></div>
-            <div class="col-1 mt-3 mx-auto">
+            <div class="col-12 col-md-2 mt-3 mx-auto">
                 <!-- Example single danger button -->                
                 {{#if currentUser}}
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                <div class="btn-group text-center mx-auto d-block">
+                    <button type="button" class="btn btn-primary dropdown-toggle " data-bs-toggle="dropdown"
                         aria-expanded="false">
                         {{currentUser.fullname}}
                     </button>

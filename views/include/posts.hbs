@@ -1,17 +1,25 @@
 {{#each postlist}}
 <div class="card mx-auto mt-2" style="width: 70%;">
   <div class="card-body">
-    <a href="/postdetail?_id={{this._id}}" style="text-decoration: none !important;">
-      <h5 class="card-title text-dark">{{this.posttitle}}</h5>
-      <p class="card-text text-secondary">{{trimString this.postdesc}}</p>
-    </a>
-    <div style="flex-wrap: wrap;" class="d-flex mt-2">
-      {{#each postcate}}
-      <a href="/categorydetail/?postcate={{this}}" style="text-decoration: none !important;"
-        class="text-dark rounded bg-light border border-dark p-1 mr-1">{{this}}</a>
-      {{/each}}
-    </div>
-    <p class="card-text mt-1"><small class="text-muted">Last updated {{this.updatedAt}}</small></p>
+    <div class="row">
+                       <div class="col-12 col-md-4 d-flex">
+<img src="uploads/{{this.postimg}}" class="img-fluid" style="width:14rem; heigth:14rem; text-align:center" alt="postimg">
+                       </div> 
+                       <div class="col-12 col-md-8">
+<a href="/postdetail?_id={{this._id}}" style="text-decoration: none !important;">
+                        
+                        <h5 class="card-title text-dark">{{this.posttitle}}</h5>
+                        <p class="card-text text-secondary">{{trimString this.postdesc}}</p>
+                    </a>
+                    <div style="flex-wrap: wrap;" class="d-flex mt-2">
+                        {{#each postcate}}
+                        <a href="/categorydetail/?postcate={{this}}" style="text-decoration: none !important;"
+                            class="text-dark rounded bg-light border border-dark p-1 mr-1">{{this}}</a>
+                        {{/each}}
+                    </div>
+                    <p class="card-text mt-1"><small class="text-muted">Last updated {{this.updatedAt}}</small></p>
+                       </div>
+                    </div>
   </div>
 </div>
 {{/each}}

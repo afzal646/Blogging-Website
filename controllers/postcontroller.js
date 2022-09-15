@@ -33,8 +33,10 @@ exports.addpost = async (req, res) => {
         const addpost = new Post({
             posttitle: req.body.Title,
             postdesc: req.body.Description,
-            postcate: req.body.Category
+            postcate: req.body.Category,
+            postimg: req.file.filename
         })
+        //console.log("files :: "+req.file.path);        
         addpost.save();
         res.status(201).redirect("admindashboard");
     } catch (error) {
@@ -44,7 +46,7 @@ exports.addpost = async (req, res) => {
 
 exports.deletepost = async (req, res) => {
     try {
-        console.log(req.query._id);
+        //console.log(req.query._id);
         const result = await Post.findOneAndDelete({ _id: req.query._id })
         res.status(201).redirect("/admindashboard");
     } catch (error) {
@@ -55,7 +57,7 @@ exports.deletepost = async (req, res) => {
 exports.editpost = async (req, res) => {
     try {
         const filteredresult = await Post.find({ _id: req.query._id });
-        console.log(filteredresult[0]);
+        //console.log(filteredresult[0]);
         res.render('editpost', { fr: filteredresult });
     } catch (error) {
         res.status(400).send(error);
@@ -70,6 +72,7 @@ exports.updatepost = async (req, res) => {
                 postdesc: req.body.Description
             }
         })
+        console.log(req.body.Title);
         res.status(201).redirect("/admindashboard");
     } catch (error) {
         res.status(400).send(error);

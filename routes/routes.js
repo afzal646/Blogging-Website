@@ -26,7 +26,8 @@ const editusercontroller = require("../controllers/editusercontroller")
 var jwt = require('jsonwebtoken');
 //const auth = require('../middleware/auth')
 //const loginauth = require('../middleware/auth')
-const {auth , isAdmin, isUser} = require("../middleware/auth")
+const {auth , isAdmin, isUser} = require("../middleware/auth");
+const uploadfilenow = require('../middleware/uploadmiddleware');
 
 router.get("/" ,auth , isUser, maincontroller.index);
 
@@ -42,9 +43,9 @@ router.post("/login", urlencodedParser, userlogincontroller.login);
 
 router.get("/admindashboard", auth ,isAdmin, maincontroller.admindashboard);
 
-router.post("/addpost", urlencodedParser, postcontroller.addpost);
+router.post("/addpost", uploadfilenow , urlencodedParser, postcontroller.addpost);
 
-router.get("/editpost", urlencodedParser, postcontroller.editpost);
+router.get("/editpost",auth, urlencodedParser, postcontroller.editpost);
 
 router.post("/updatepost", urlencodedParser, postcontroller.updatepost);
 
@@ -54,7 +55,7 @@ router.post("/postcomment", auth ,urlencodedParser, postcontroller.postcomment);
 
 router.post("/addcategory", urlencodedParser, categorycontroller.addcategory);
 
-router.get("/categorydetail", categorycontroller.categorydetail);
+router.get("/categorydetail",auth, categorycontroller.categorydetail);
 
 router.get("/editcategory", urlencodedParser, categorycontroller.editcategory);
 
@@ -62,7 +63,7 @@ router.post("/updatecategory", urlencodedParser, categorycontroller.updatecatego
 
 router.get("/deletecategory", categorycontroller.deletecategory);
 
-router.get("/searchdetail", searchcontroller.searchdetail);
+router.get("/searchdetail",auth, searchcontroller.searchdetail);
 
 router.get('/changepasswordform', userlogincontroller.changepasswordform);
 

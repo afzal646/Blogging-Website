@@ -1,5 +1,5 @@
-<form action="/addpost" method="POST" style="width: 70%;" class="mx-auto justify-content-center">
-  <div class="form-group">
+<form action="/addpost" method="POST" enctype="multipart/form-data" style="width: 70%;" class="mx-auto justify-content-center">
+  <div class="form-group">    
     <label for="exampleInputTitle">Title</label>
     <input type="text" name="Title" required class="form-control" id="exampleInputTitle" aria-describedby="titleHelp"
       placeholder="Enter Title">
@@ -7,6 +7,10 @@
   <div class="form-group">
     <label for="exampleInputDescription">Description</label>
     <textarea name="Description" class="form-control" placeholder="Add Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputDescription">Upload Image</label>
+    <input type="file" name="txtimg" class="form-control-file" id="exampleFormControlFile1">
   </div>
   <div class="form-group">
     <label for="exampleInputCategory">Category</label>

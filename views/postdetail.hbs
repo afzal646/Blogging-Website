@@ -11,11 +11,13 @@
 </head>
 
 <body>
+    <div class="container">
     {{>navbar}}
     {{#each fr}}
     <div class="card mx-auto mt-2" style="width: 70%;">
         <div class="card-body">
-            <h5 class="card-title text-dark">{{this.posttitle}}</h5>
+            <img src="uploads/{{this.postimg}}" class="img-fluid" style="width:18rem; heigth:18rem; display:block; margin:auto;" alt="postimg">
+            <h5 class="card-title text-dark mt-2">{{this.posttitle}}</h5>
             <p class="card-text text-secondary">{{this.postdesc}}</p>
             <div style="flex-wrap: wrap;" class="d-flex mt-2">
                 {{#each postcate}}
@@ -56,7 +58,7 @@
         </div>
     </div>
     {{/each}}
-
+</div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

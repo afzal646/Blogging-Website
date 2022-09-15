@@ -13,6 +13,7 @@ const postschema = new mongoose.Schema({
         type: String,
         required: true
     }],
+    postimg: String,
     postcomment: [{        
         userid: mongoose.Schema.Types.ObjectId,
         username: String,
